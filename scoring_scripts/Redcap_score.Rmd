@@ -1,5 +1,7 @@
 # 0. Load packages
-```{r, message=FALSE}
+
+ 
+```{r}
 library(readxl)
 library(haven)
 library(cgwtools)
@@ -12,7 +14,8 @@ library(dplyr)
 # 1. Download Data from API
 ```{r}
 # Load Raw data; name cleaned data file for output
-data <- read.csv('data/BAMHealth_DATA_2022-10-03_1811.csv')  
+data <- read.csv('data/BAMHealth_DATA_2022-10-03_1811.csv') |> 
+  filter(redcap_event_name != 'consent_arm_1')
 ```
 
 # 1.5 Clean known data issues
